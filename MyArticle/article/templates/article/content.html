@@ -1,0 +1,10 @@
+{% extends 'article/index.html' %}
+{% block content %}
+	{% if article_obj %}
+		<p class="heading">{{article_obj.article_name}}</p>
+		<img src="/static/article/images/{{article_obj.image_name}}" alt="can't display" height="100" width="200"/>
+		<p class="desc">{{article_obj.article_value}}</p>	
+	{% else %}
+		<p>No Articles Available</p>
+	{% endif %}
+{% endblock %}

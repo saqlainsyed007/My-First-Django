@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<title>KTM Article</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'article/style1.css' %}" />
+	</head>
+	<body>
+		<img src="/static/article/images/KTM_Logo.jpg" height=50 width=100 class="x1"/>
+		<img src="/static/article/images/Ready_To_Race.png" height=50 width=100 class="x2"/>
+		<br/>
+			<p class="tagline" align="center">Compress Distance and Strech Time !!!</p>
+		<table cellspacing=5>
+			<tr valign="top">
+				<th>
+					<div class="nav">
+						<table>
+						{% if article_list %}
+							{% for a in article_list %}
+								<tr>
+									<th><a href="/article/{{ a.article_name }}/"><img src="/static/article/images/{{a.image_name}}" alt="can't display" height="50" width="100"/></a></th>
+								</tr>
+								<tr>
+									<td><a href="/article/{{ a.article_name }}/">{{a.article_name}}</a></td>
+								</tr>
+							{% endfor %}
+						</table>
+						{% else %}
+							<p>No articles are available.</p>
+						{% endif %}
+					</div>
+				</th>
+				<th>
+					<div class="main">
+						{% block content %}
+							<table cellspacing=10 class="content">
+								{% if article_list %}
+									{% for a in article_list %}
+										<tr>
+											<td class="name"><a href="/article/{{ a.article_name }}/">{{a.article_name}}</a></td>
+											<td><img src="/static/article/images/{{a.image_name}}" alt="can't display" height="50" width="100"/></td>
+											<td class="value">{{a.article_value|truncatewords:20}}</td>
+										</tr>
+									{% endfor %}
+								{% else %}
+									<p>No Artilces available</p>
+								{% endif %}
+							</table>
+						{% endblock %}
+					</div>
+				</th>
+			</tr>
+			<br/>
+		</table>
+		<br/>
+		<div class="ext">
+			<table>
+				<tr>
+					<table cellspacing=10px >
+					{% if extras_list %}
+						<tr>
+						{% for e1 in extras_list %}	
+							<td>
+								<a href=""><img src="/static/article/images/{{e1.image_name}}" alt="can't display" height="100" width="200"/></a>
+							</td>
+						{% endfor %}
+						</tr>
+						<tr>
+						{% for e2 in extras_list %}
+							<td>
+								<a href="" class="x">{{e2.rel_article_name}}</a>
+							</td>
+						{% endfor %}
+						</tr>
+					{% else %}
+						<p>No articles are available.</p>
+					{% endif %}
+					</table>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

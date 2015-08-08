@@ -1,0 +1,13 @@
+p.heading
+{
+	font-family: "comic sans ms";
+	font-weight: bold;
+	font-size: 18pt;
+}
+
+p.desc
+{
+	font-family: "comic sans ms";
+	font-size: 14pt;
+	text-align: justify;
+}
