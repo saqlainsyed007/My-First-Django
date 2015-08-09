@@ -13,8 +13,8 @@
 			<tr valign="top">
 				<th>
 					<div class="nav">
-						<table>
 						{% if article_list %}
+						<table>
 							{% for a in article_list %}
 								<tr>
 									<th><a href="/article/{{ a.article_name }}/"><img src="/static/article/images/{{a.image_name}}" alt="can't display" height="50" width="100"/></a></th>
