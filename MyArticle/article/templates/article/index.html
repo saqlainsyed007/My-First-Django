@@ -53,8 +53,8 @@
 		</table>
 		<br/>
 		<div class="ext">
-				<table cellspacing=10px >
-					{% if extras_list %}
+				{% if extras_list %}
+					<table cellspacing=10px >
 						<tr>
 						{% for e1 in extras_list %}	
 							<td>
@@ -69,10 +69,10 @@
 							</td>
 						{% endfor %}
 						</tr>
-					{% else %}
-						<p>No articles are available.</p>
-					{% endif %}
-				</table>
+					</table>
+				{% else %}
+					<p>No articles are available.</p>
+				{% endif %}
 		</div>
 	</body>
 </html>
